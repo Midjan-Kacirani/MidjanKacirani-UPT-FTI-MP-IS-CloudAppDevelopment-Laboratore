@@ -28,13 +28,13 @@ public class AuthorRestController {
     @PostMapping()
     public Author saveAuthor(@RequestBody(required = true) Author author) {
 
-        log.info("Kerkese per te marr te ruajtur nje autor te ri erdhi ne server!");
+        log.info("Kerkese per te ruajtur nje autor te ri erdhi ne server!");
         return authorRepository.save(author);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Author> updateAuthor(@PathVariable Long id, @RequestBody Author author) {
-        log.info("Kerkese per te marr te perditesuar autorin me Id: " + id + "erdhi ne server!");
+        log.info("Kerkese per te perditesuar autorin me Id: " + id + "erdhi ne server!");
         Optional<Author> authorOptional = authorRepository.findById(id);
         if (authorOptional.isPresent()) {
             author.setId(id);
@@ -44,7 +44,7 @@ public class AuthorRestController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Author> deleteAuthorById(@PathVariable Long id) {
-        log.info("Kerkese per te marr te fshire autorin me Id: " + id + "erdhi ne server!");
+        log.info("Kerkese per te fshire autorin me Id: " + id + "erdhi ne server!");
         Optional<Author> authorOptional = authorRepository.findById(id);
         if (authorOptional.isPresent()) {
             authorRepository.deleteById(id);
